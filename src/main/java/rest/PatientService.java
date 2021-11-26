@@ -12,14 +12,14 @@ public class PatientService {
     @GET
     //Produces efterfølges af noget der sendes tilbage
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Bruger> getPatients(@HeaderParam("authorization") String authHeader) {
+    public List<Bruger> getPatients(@HeaderParam("authorization") String authHeader) { //vi laver en header, hvor token kan validere den.
         System.out.println(authHeader);
-        JWTHandler.validateToken(authHeader);
+        JWTHandler.validateToken(authHeader); //valideret en token.
         //FIXME: Find actual patients!
-        List<Bruger> brugers = new ArrayList<>();
-        Bruger testBruger = new Bruger();
-        testBruger.setBrugernavn("johnny");
-        brugers.add(testBruger);
+        List<Bruger> brugers = new ArrayList<>(); // detter er blot en tester
+        Bruger testBruger = new Bruger(); //tester
+        testBruger.setBrugernavn("johnny"); //tester
+        brugers.add(testBruger); //tester
         return brugers;
        // return BrugerDAO.getInstance().getPatients();
     }

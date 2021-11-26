@@ -39,13 +39,13 @@ public class JWTHandler {
         return key;
     }
 
-    public static String validateToken(String authHeader) {
+    public static String validateToken(String authHeader) { //den modtager den stringen der hedder validateToken fra PatientService klasse.
         try {
             Claims claims = Jwts.parser()
-                    .setSigningKey(getKey())
-                    .parseClaimsJws(authHeader)
+                    .setSigningKey(getKey()) // vi får key fra getKey
+                    .parseClaimsJws(authHeader) // den kalder authHeader fra PatientService og
                     .getBody();
-            String user = (String) claims.get("User");
+            String user = (String) claims.get("User"); //kan sette token tilbage til den oprindelige tekst.
             return user;
         } catch (JwtException e){
             throw new WebApplicationException(401);

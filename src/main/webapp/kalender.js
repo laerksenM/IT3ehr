@@ -3,11 +3,11 @@ async function hentPatienter(){
         method:"GET", // husk brug Get da vi skal hente her.
         headers:{
             "content-type": "application/json",
-            "authorization": localStorage.getItem("token")
+            "authorization": localStorage.getItem("token") //vi getter authoration fra hvor vores token er gemt
         }
     })
-    if (result.status==401){
-        alert("DU er ikke logget ind eller har ikke ettgsdfklndfgsjk")
+    if (result.status==401){ // hvis der opstår fejl
+        alert("Du er ikke logget ind ellers har ikke rettigheder til at logge ind")
     }
     data = await result.json()
    /* console.log(result.status)
@@ -20,5 +20,3 @@ async function hentPatienter(){
     */
     // Vis patienter
 }
-
-//TODO: sende tokenen med og validere den
