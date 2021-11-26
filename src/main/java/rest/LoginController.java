@@ -9,6 +9,9 @@ public class LoginController {
         if (user !=null && user.getPassword().equals(user.getPassword())) {
             return JWTHandler.generateToken(user.getBrugernavn());
         }
+        else {
+            System.out.println("Brugernavn ikke finds:" + bruger.getBrugernavn());
+        }
         throw new WebApplicationException("Ikke godt",401);
     }
 }

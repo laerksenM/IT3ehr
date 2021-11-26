@@ -14,7 +14,7 @@ public class BrugerDAO {
     public Bruger findBruger(String brugernavn) {
         Connection connection = MySQLDB.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Users WHERE User = ? ");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Users WHERE User= ? ");
             preparedStatement.setString(1, brugernavn);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -24,6 +24,12 @@ public class BrugerDAO {
                 bruger.setPassword(password);
                 return bruger;
             }
+            /*if (resultSet.next()) {
+                //in this case enter when at least one result comes it means user is valid
+                System.out.println("Brugernavn finds:" + brugernavn);
+            } else {
+                System.out.println("Brugernavn ikke finds:" + brugernavn);
+            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
