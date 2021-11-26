@@ -11,9 +11,13 @@ async function login() {
         },
         body: JSON.stringify(formObject)
     })
-    localStorage.setItem("token",await res.text()) // gemmer token
+    if (res.status===200) {
+        localStorage.setItem("token", await res.text()) // gemmer token
 
-    window.location.href= "kalender.html"
+        window.location.href = "kalender.html"
+    } else {
+        alert("UHA! " +res.status)
+    }
 }
 /*
     }

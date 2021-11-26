@@ -1,7 +1,5 @@
 package rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -9,7 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 
 import javax.crypto.spec.SecretKeySpec;
-import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.WebApplicationException;
 import java.security.Key;
 import java.util.Calendar;
 
@@ -40,6 +38,22 @@ public class JWTHandler {
         }
         return key;
     }
+
+    public static String validateToken(String authHeader) {
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(getKey())
+                    .parseClaimsJws(authHeader)
+                    .getBody();
+            String user = (String) claims.get("User");
+            return user;
+        } catch (JwtException e){
+            throw new WebApplicationException(401);
+        }
+
+    }
+
+
 
    /* public static Bruger validerBruger(String authentication) {
         String[] tokenArray = authentication.split(" ");

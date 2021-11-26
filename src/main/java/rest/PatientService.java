@@ -2,6 +2,7 @@ package rest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,8 +12,15 @@ public class PatientService {
     @GET
     //Produces efterfølges af noget der sendes tilbage
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Bruger> getPatients() {
-        return null;
+    public List<Bruger> getPatients(@HeaderParam("authorization") String authHeader) {
+        System.out.println(authHeader);
+        JWTHandler.validateToken(authHeader);
+        //FIXME: Find actual patients!
+        List<Bruger> brugers = new ArrayList<>();
+        Bruger testBruger = new Bruger();
+        testBruger.setBrugernavn("johnny");
+        brugers.add(testBruger);
+        return brugers;
        // return BrugerDAO.getInstance().getPatients();
     }
 /*

@@ -6,6 +6,9 @@ async function hentPatienter(){
             "authorization": localStorage.getItem("token")
         }
     })
+    if (result.status==401){
+        alert("DU er ikke logget ind eller har ikke ettgsdfklndfgsjk")
+    }
     data = await result.json()
    /* console.log(result.status)
     if (result.status!=200){
