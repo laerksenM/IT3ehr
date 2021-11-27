@@ -41,7 +41,8 @@ public class JWTHandler {
         return key;
     }
 
-   /* public static Bruger validerBruger(String authentication) {
+   /* */
+   public static Bruger validerBruger(String authentication) {
         String[] tokenArray = authentication.split(" ");
         String token = tokenArray[tokenArray.length - 1];
         try {
@@ -51,13 +52,12 @@ public class JWTHandler {
                     .getBody();
             ObjectMapper mapper = new ObjectMapper();
             Bruger user = mapper.convertValue(claims.get("Users"), Bruger.class);
-            System.out.println(Bruger);
-            return Bruger;
+            System.out.println(user);
+            return user;
         } catch (JwtException e){
             System.out.println(e.getClass() +":  "+ e.getMessage() );
             throw new NotAuthorizedException(e.getMessage());
         }
-    }*/
-
+    }
 }
 /*Sikrer ikke at beskeden er hemmelig, men at ingen kan pille ved vores token og ændre i den*/

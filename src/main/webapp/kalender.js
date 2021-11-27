@@ -16,6 +16,7 @@ async function hentPatienter(){
 
     */
     // Vis patienter
+    window.location.href= "nyKonsultation.html"
 }
 
 //TODO: sende tokenen med og validere den
