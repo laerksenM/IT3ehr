@@ -1,5 +1,5 @@
 async function hentPatienter(){
-    let result = await fetch("rest/patients",{
+    let result = await fetch("rest/api/patients",{
         method:"GET", // husk brug Get da vi skal hente her.
         headers:{
             "content-type": "application/json",

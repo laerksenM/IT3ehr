@@ -4,7 +4,7 @@ async function login() {
     let formData = new FormData(loginForm);
     let formObject = Object.fromEntries(formData);
     console.log(formObject);
-    const res =await fetch("rest/login", {
+    const res =await fetch("rest/api/login", {
         method: "POST",
         headers: {
             "content-type": "application/json"
