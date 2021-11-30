@@ -14,14 +14,14 @@ import java.util.Calendar;
 public class JWTHandler {
     private static Key key = MacProvider.generateKey(SignatureAlgorithm.HS512);
 
-    public static String generateToken(String brugernavn) {
+    public static String generateToken(String brugernavn) { // laver tokenen
         /*hvornår den udløber*/
         Calendar expiry = Calendar.getInstance();
-        expiry.add(Calendar.MINUTE, 240);
-        return Jwts.builder()
-                .claim("User",brugernavn)
+        expiry.add(Calendar.MINUTE, 240); //dvs 4 timer
+        return Jwts.builder() //bygger tokenen udfra brugernavn.
+                .claim("User",brugernavn) //Genere en unik nøgle udfra brugernavnet
                 .signWith(SignatureAlgorithm.HS512,key)
-                .setExpiration(expiry.getTime())
+                .setExpiration(expiry.getTime()) //hvornår den udløber
                 /*den gemmes*/
                 .compact();
     }
