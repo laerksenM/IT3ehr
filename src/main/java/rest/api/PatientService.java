@@ -2,6 +2,7 @@ package rest.api;
 
 import rest.Data.Bruger;
 import rest.business.JWTHandler;
+import rest.Data.BrugerDAO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
