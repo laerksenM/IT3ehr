@@ -3,7 +3,7 @@ async function opretNyKonsultation() {
     let formKonsul = new FormData(form);
     let aftaleJson = Object.fromEntries(formKonsul)
     console.log(aftaleJson);
-    let res = await fetch("rest/opretKonsultation", {
+    let res = await fetch("rest/api/opretKonsultation", {
             method: "POST",
             body: JSON.stringify(aftaleJson),
             headers: {
