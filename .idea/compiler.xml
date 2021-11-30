@@ -9,8 +9,5 @@
         <module name="IT3ehr" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="IT3ehr" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
