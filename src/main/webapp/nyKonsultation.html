@@ -9,7 +9,8 @@
 <body>
 <div class ="center">
     <h1>Konsultation</h1>
-    <form  action="kalender.html">
+
+    <form>
         <div class="txt_field">
             <label for="dato">Dato:</label>
             <input type="date" id="dato"><br>
@@ -23,15 +24,15 @@
             <input type="time" id="Sluttid"> <br>
         </div>
         <div class="txt_field">
-            <label for="cpr"> rest.Patient-CPR: </label>
+            <label for="cpr"> Patient-CPR: </label>
             <input type="number" id="cpr"> <br>
         </div>
         <div class="txt_field">
             <label for="noter">Noter til konsultation:</label>
             <input type="text" id="noter"><br>
         </div>
-        <div class="txt_field">
-            <input type="submit" value="Opret tid">
+        <div>
+            <input type ="button" value="Opret tid" class="knap" onclick="opretNyKonsultation()">
         </div>
     </form>
 </div>
