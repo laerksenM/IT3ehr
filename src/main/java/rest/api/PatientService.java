@@ -12,7 +12,17 @@ import java.util.List;
 
 @Path("patients")
 public class PatientService {
-    //GET Bruges når noget skal læses
+    @GET
+    //Produces efterfølges af noget der sendes tilbage
+    @Produces({MediaType.APPLICATION_JSON})
+    //@Consumes({MediaType.APPLICATION_JSON})
+    //public List<Patient> getGiraffes() {
+    //    return PatientDao.getInstance().getGiraffes();
+    //}
+    public List<Bruger> getPatient(@HeaderParam("authorization") String authHeader) { //vi laver en header, hvor token kan validere den.
+        System.out.println("authHeader: "+authHeader);
+        JWTHandler.validateToken(authHeader); //valideret en token.
+        return BrugerDAO.getInstance().allPatients();//GET Bruges når noget skal læses
     /*@GET
     //Produces efterfølges af noget der sendes tilbage
     @Produces(MediaType.APPLICATION_JSON)
@@ -28,16 +38,7 @@ public class PatientService {
        // return BrugerDAO.getInstance().getPatients();
     }*/
 
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    //@Consumes({MediaType.APPLICATION_JSON})
-    //public List<Patient> getGiraffes() {
-    //    return PatientDao.getInstance().getGiraffes();
-    //}
-    public List<Bruger> getPatient(@HeaderParam("authorization") String authHeader) {
-        System.out.println("authHeader: "+authHeader);
-        JWTHandler.validateToken(authHeader); //valideret en token.
-        return BrugerDAO.getInstance().allPatients();
+
 
     }
 

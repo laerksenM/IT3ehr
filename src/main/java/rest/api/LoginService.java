@@ -5,10 +5,10 @@ import rest.business.LoginController;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-
+//Path bruges til at finde vej fra js til java.
 @Path("login") //gør at den bliver samlet op af tomcat og bliver brugt fornuftigt.
 public class LoginService {
-    private static LoginController loginController = new LoginController();
+    private static LoginController loginController = new LoginController(); //skaber forbindelse til LoginController klasse
 
 
     @POST
