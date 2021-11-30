@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <title>Opret ny konsultation</title>
     <link rel="stylesheet" href="nyKonsultation.css">
+    <script src="nyKonsultation.js"></script>
 </head>
 
 <body>
-<div class ="center">
+<form  id="konsultationForm">
+
+    <label for="CPR"> CPR: </label>
+    <input type="text" id="CPR" name="CPR" value="0102030405"> <br>
+
+    <label for="TimeStart">Starttid:</label>
+    <input type="text" id="TimeStart" name="TimeStart" value="2021-11-28 19:30"><br>
+
+    <label for="TimeEnd">Sluttid:</label>
+    <input type="text" id="TimeEnd" name="TimeEnd" value="2021-11-28 19:45"><br>
+
+
+    <label for="Notat">Noter til konsultation:</label>
+    <input type="text" id="Notat" name="Notat" value="notat her"><br>
+
+
+    <label for="KlinikID"> KlinikID </label>
+    <input type="text" id="KlinikID" name="KlinikID" value="grp2"> <br>
+
+    <input type="submit" onclick="opretNyKonsultation()" value="Opret konsultation">
+</form>
+
+<form action="kalender.html">
+    <input type="submit" value="tilbage til kalender"></form>
+<!--<div class ="center">
     <h1>Konsultation</h1>
     <form  action="kalender.html">
         <div class="txt_field">
@@ -34,7 +59,6 @@
             <input type="submit" value="Opret tid">
         </div>
     </form>
-</div>
+</div> -->
 </body>
-<script src="nyKonsultation.js"></script>
 </html>
