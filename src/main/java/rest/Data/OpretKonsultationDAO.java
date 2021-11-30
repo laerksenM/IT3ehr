@@ -16,22 +16,22 @@ public class OpretKonsultationDAO {
 
 
     // Test til indsætning i database table med et statement ad gangen, kun brugt til test
-    public OpretKonsultation InsertIntoAftaler(OpretKonsultation opretKonsultationer) {
+    public OpretKonsultation InsertIntoAftaler(OpretKonsultation opretKonsultation) {
         String SQLAftaler = "INSERT INTO Aftaler (CPR, TimeStart, TimeEnd, Notat, KlinikID) VALUES (?,?,?,?,?);";
         try {
             preparedStatement = connection.prepareStatement(SQLAftaler);
-            preparedStatement.setString(1, opretKonsultationer.getCPR());
-            preparedStatement.setString(2, opretKonsultationer.getTimeStart());
-            preparedStatement.setString(3, opretKonsultationer.getTimeEnd());
-            preparedStatement.setString(4, opretKonsultationer.getNotat());
-            preparedStatement.setString(5, opretKonsultationer.getKlinikID());
+            preparedStatement.setString(1, opretKonsultation.getCPR());
+            preparedStatement.setString(2, opretKonsultation.getTimeStart());
+            preparedStatement.setString(3, opretKonsultation.getTimeEnd());
+            preparedStatement.setString(4, opretKonsultation.getNotat());
+            preparedStatement.setString(5, opretKonsultation.getKlinikID());
             preparedStatement.execute();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             System.out.println("fejl i overførsel til db");
         }
-        return opretKonsultationer;
+        return opretKonsultation;
     }
 
     public OpretKonsultation InsertIntoAftaler2(String CPR, String TimeStart, String TimeEnd, String Notat, String KlinikID) {
