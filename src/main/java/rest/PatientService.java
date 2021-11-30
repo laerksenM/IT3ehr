@@ -9,11 +9,11 @@ import java.util.List;
 @Path("patients")
 public class PatientService {
     //GET Bruges når noget skal læses
-    @GET
+    /*@GET
     //Produces efterfølges af noget der sendes tilbage
     @Produces(MediaType.APPLICATION_JSON)
     public List<Bruger> getPatients(@HeaderParam("authorization") String authHeader) { //vi laver en header, hvor token kan validere den.
-        System.out.println(authHeader);
+        System.out.println("authHeader: "+authHeader);
         JWTHandler.validateToken(authHeader); //valideret en token.
         //FIXME: Find actual patients!
         List<Bruger> brugers = new ArrayList<>(); // detter er blot en tester
@@ -22,7 +22,21 @@ public class PatientService {
         brugers.add(testBruger); //tester
         return brugers;
        // return BrugerDAO.getInstance().getPatients();
+    }*/
+
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    //@Consumes({MediaType.APPLICATION_JSON})
+    //public List<Patient> getGiraffes() {
+    //    return PatientDao.getInstance().getGiraffes();
+    //}
+    public List<Bruger> getPatient(@HeaderParam("authorization") String authHeader) {
+        System.out.println("authHeader: "+authHeader);
+        JWTHandler.validateToken(authHeader); //valideret en token.
+        return BrugerDAO.getInstance().allPatients();
+
     }
+
 /*
     @GET
     @Path("{cpr}")
