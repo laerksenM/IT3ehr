@@ -11,12 +11,12 @@ async function login() {
         },
         body: JSON.stringify(formObject)
     })
-    if (res.status===200) {
+    if (res.status===200) { // 200 = OK
         localStorage.setItem("token", await res.text()) // gemmer token
 
         window.location.href = "kalender.html"
     } else {
-        alert("UHA! " +res.status)
+        alert("Fejl opstået " +res.status) //401 fejl, 500 browserfejl
     }
 }
 /*
