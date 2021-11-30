@@ -1,6 +1,6 @@
 package rest;
 
-import rest.MySQLDB;
+import rest.Data.MySQLDB;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
