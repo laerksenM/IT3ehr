@@ -9,11 +9,11 @@ import java.util.List;
 
 public class BrugerDAO {
 
-    private List<Bruger> patients = new ArrayList<>();
+    private static List<Bruger> patients = new ArrayList<>();
     private static BrugerDAO instance = new BrugerDAO();
 
     public BrugerDAO(){
-        Bruger b = new Bruger();
+        //Bruger b = new Bruger();
         /*
         Patient melman = new Patient();
         melman.setName("melman");
@@ -55,8 +55,10 @@ public class BrugerDAO {
         return null;
     }
 
-    public List<Bruger> allPatients() {
+    public static List<Bruger> allPatients() {
         Connection conn= MySQLDB.getConnection();
+        Bruger b = new Bruger();
+        patients.clear();
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM Patients ");
             //preparedStatement.setString(1, brugernavn);
@@ -74,18 +76,16 @@ public class BrugerDAO {
                 //in this case enter when at least one result comes it means user is valid
                 //System.out.println("Patients finds:" );
                 //return (Bruger) resultSet;
-                Bruger b = new Bruger();
+                //Bruger b = new Bruger();
                 String fn = resultSet.getString("firstName");
                 String cpr = resultSet.getString("CPR");
                 //resultSet.getString("lastName");
                 b.setBrugernavn(fn);
                 b.setPassword(cpr);
                 patients.add(b);
-                if (!resultSet.next()) {
-                    break;
-                }
-            }
+                System.out.println("resultset: "+fn+" "+cpr);
 
+            }
             //else {
               //  System.out.println("Patients finds ikke:" );
             //}

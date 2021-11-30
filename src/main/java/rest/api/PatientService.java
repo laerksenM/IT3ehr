@@ -22,7 +22,7 @@ public class PatientService {
     public List<Bruger> getPatient(@HeaderParam("authorization") String authHeader) { //vi laver en header, hvor token kan validere den.
         System.out.println("authHeader: "+authHeader);
         JWTHandler.validateToken(authHeader); //valideret en token.
-        return BrugerDAO.getInstance().allPatients();//GET Bruges når noget skal læses
+        return BrugerDAO.allPatients();//GET Bruges når noget skal læses
     /*@GET
     //Produces efterfølges af noget der sendes tilbage
     @Produces(MediaType.APPLICATION_JSON)
