@@ -16,6 +16,11 @@ public class OpretKonsultation {
         setNotat(Notat);
         setKlinikID(KlinikID);
     }
+
+    public OpretKonsultation() {
+
+    }
+
     public String getCPR() {
         return CPR;
     }
