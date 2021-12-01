@@ -8,7 +8,7 @@ import javax.ws.rs.WebApplicationException;
 public class OpretKonsultationController {
     private static OpretKonsultationDAO opretKonsultationDAO = new OpretKonsultationDAO();
 
-    public void nyKonsultation(OpretKonsultation opretKonsultation) {
+    public String nyKonsultation(OpretKonsultation opretKonsultation) {
         OpretKonsultation consultation = opretKonsultationDAO.InsertIntoAftaler2(opretKonsultation.getCPR(), opretKonsultation.getTimeStart(), opretKonsultation.getTimeEnd(), opretKonsultation.getNotat(), opretKonsultation.getKlinikID());
         OpretKonsultation konsul = opretKonsultationDAO.InsertIntoAftaler(opretKonsultation);
         if (consultation != null) {

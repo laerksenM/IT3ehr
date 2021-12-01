@@ -10,6 +10,7 @@ public class MySQLDB {
             Connection con = MySQLDB.getConnection();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM Users");
+            System.out.println("forbindelse til databases users taget i brug");
             while(rs.next())
             {
                 System.out.println(rs.getString(1)+" " + rs.getString(2));

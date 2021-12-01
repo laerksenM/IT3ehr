@@ -8,7 +8,6 @@ public class KonsultationController {
 
     public Konsultationer hentKonsultationer(String cprNummer) {
 
-        System.out.println("kommer her");
         System.out.println(cprNummer);
         Konsultationer aftale = konsultationDao.findKonsultationer(cprNummer);
         System.out.println(cprNummer);

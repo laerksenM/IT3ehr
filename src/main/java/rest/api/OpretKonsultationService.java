@@ -13,16 +13,20 @@ import javax.ws.rs.core.MediaType;
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;
 
+//Her backend starter for opretkonsultation()
 @Path("opretKonsultation")
 public class OpretKonsultationService {
     private OpretKonsultationController opretKonsultationController = new OpretKonsultationController();
     private OpretKonsultationDAO opretKonsultationDAO = new OpretKonsultationDAO();
-    private OpretKonsultation opretKonsultation = new OpretKonsultation();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void nyKonsultation(@HeaderParam("authorization") String authHeader) {
+    //Nu tilføjet data, der sendes fra front-end ved dette "OpretKonsultation opretKonsultation"
+    public void nyKonsultation(@HeaderParam("authorization") String authHeader, OpretKonsultation opretKonsultation) {
+       //autheader er det token der sendes fra front-end
         JWTHandler.validateToken(authHeader);
+        System.out.println("Valideret token");
+        System.out.println(opretKonsultation);
         opretKonsultationDAO.InsertIntoAftaler(opretKonsultation);
         opretKonsultationController.nyKonsultation(opretKonsultation);
         System.out.println("den er nået til OpretKonsultationService");

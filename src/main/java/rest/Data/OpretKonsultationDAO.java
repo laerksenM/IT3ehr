@@ -19,12 +19,16 @@ public class OpretKonsultationDAO {
     public OpretKonsultation InsertIntoAftaler(OpretKonsultation opretKonsultation) {
         String SQLAftaler = "INSERT INTO Aftaler (CPR, TimeStart, TimeEnd, Notat, KlinikID) VALUES (?,?,?,?,?);";
         try {
+            System.out.println("Forbereder Sql");
+            System.out.println(opretKonsultation);
             preparedStatement = connection.prepareStatement(SQLAftaler);
             preparedStatement.setString(1, opretKonsultation.getCPR());
             preparedStatement.setString(2, opretKonsultation.getTimeStart());
             preparedStatement.setString(3, opretKonsultation.getTimeEnd());
             preparedStatement.setString(4, opretKonsultation.getNotat());
             preparedStatement.setString(5, opretKonsultation.getKlinikID());
+            System.out.println("Har forberedt SQL");
+
             preparedStatement.execute();
 
         } catch (SQLException throwables) {

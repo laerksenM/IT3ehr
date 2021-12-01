@@ -2,44 +2,23 @@ package rest.Data;
 
 //@XmlRootElement
 public class OpretKonsultation {
-
     private String CPR;
     private String TimeStart;
     private String TimeEnd;
     private String Notat;
     private String KlinikID;
 
-    public OpretKonsultation() {}
-
+//Man kan se her at konstruktøren bliver ikke kaldt
     public OpretKonsultation(String CPR, String TimeStart, String TimeEnd, String Notat, String KlinikID) {
-        this.CPR = CPR;
-        this.TimeStart = TimeStart;
-        this.TimeEnd = TimeEnd;
-        this.Notat = Notat;
-        this.KlinikID = KlinikID;
+        setCPR(CPR);
+        setTimeStart(TimeStart);
+        setTimeEnd(TimeEnd);
+        setNotat(Notat);
+        setKlinikID(KlinikID);
     }
-
-
-    public String getTimeEnd() {
-        return TimeEnd;
-    }
-
-    public void setTimeEnd(String TimeEnd) {
-        this.TimeEnd = TimeEnd;
-    }
-
-    public String getNotat() {
-        return Notat;
-    }
-
-    public void setNotat(String Notat) {
-        this.Notat = Notat;
-    }
-
     public String getCPR() {
         return CPR;
     }
-
     public void setCPR(String CPR) {
         this.CPR = CPR;
     }
@@ -47,15 +26,26 @@ public class OpretKonsultation {
     public String getTimeStart() {
         return TimeStart;
     }
-
     public void setTimeStart(String TimeStart) {
         this.TimeStart = TimeStart;
     }
 
+    public String getTimeEnd() {
+        return TimeEnd;
+    }
+    public void setTimeEnd(String TimeEnd) {
+        this.TimeEnd = TimeEnd;
+    }
+
+    public String getNotat() {
+        return Notat;
+    }
+    public void setNotat(String Notat) {
+        this.Notat = Notat;
+    }
     public String getKlinikID() {
         return KlinikID;
     }
-
     public void setKlinikID(String KlinikID) {
         this.KlinikID = KlinikID;
     }

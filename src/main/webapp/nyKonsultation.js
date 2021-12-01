@@ -3,7 +3,7 @@ async function opretNyKonsultation() {
     let formKonsul = new FormData(form);
     let aftaleJson = Object.fromEntries(formKonsul)
     console.log(aftaleJson);
-    let res = await fetch("rest/api/opretKonsultation", {
+    let res = await fetch("rest/opretKonsultation", {
             method: "POST",
             body: JSON.stringify(aftaleJson),
             headers: {
@@ -12,6 +12,7 @@ async function opretNyKonsultation() {
             }
         }
     );
+    console.log("Heeeeej")
     console.log(res.body);
     console.log(res.status)
     if (res.status != 200) {
