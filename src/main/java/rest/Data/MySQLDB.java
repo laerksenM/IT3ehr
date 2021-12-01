@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 
 public class MySQLDB {
     public static void main(String[] args) {
+
        try{
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
             Connection con = MySQLDB.getConnection();
@@ -44,6 +45,34 @@ public class MySQLDB {
         }catch(Exception e) {
             System.out.println(e.getMessage());
         }
+
+        try{
+            String CPR = "1111111111";
+            String TimeStart = "2021-12-01 00:10";
+            String TimeEnd = "2021-12-01 00:25";
+            String Notat = "notat tilføjes her";
+            String KlinikID = "grp2";
+
+            Connection con = MySQLDB.getConnection();
+            PreparedStatement preparedStatement;
+
+            String SQLAftaler = "INSERT INTO Aftaler (CPR, TimeStart, TimeEnd, Notat, KlinikID) VALUES (?,?,?,?,?)";
+            try {
+                preparedStatement = con.prepareStatement(SQLAftaler);
+                preparedStatement.setString(1, CPR);
+                preparedStatement.setString(2, TimeStart);
+                preparedStatement.setString(3, TimeEnd);
+                preparedStatement.setString(4, Notat);
+                preparedStatement.setString(5, KlinikID);
+                preparedStatement.execute();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+
 
 
     }
