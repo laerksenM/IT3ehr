@@ -18,6 +18,33 @@ public class MySQLDB {
         }catch(Exception e) {
            System.out.println(e.getMessage());
        }
+        try{
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
+            Connection con = MySQLDB.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Aftaler");
+            while(rs.next())
+            {
+                System.out.println(rs.getString(1)+" " + rs.getString(2)+" " + rs.getString(3)+" " + rs.getString(4)+" " + rs.getString(5));
+                System.out.println("----------------------");
+            }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try{
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
+            Connection con = MySQLDB.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Patients");
+            while(rs.next())
+            {
+                System.out.println(rs.getString(1)+" " + rs.getString(2)+" " + rs.getString(3)+" " + rs.getString(4));
+                System.out.println("----------------------");
+            }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
