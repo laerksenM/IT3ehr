@@ -52,7 +52,7 @@ public class PatientService {
     }*/
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Bruger postPatient(@HeaderParam("authorization") String authHeader) {
+    public Bruger postPatient(Bruger b) {
         System.out.println("Bruger: " + b);
         BrugerDAO.getInstance().getPatient().add(b);
         BrugerDAO.getInstance().savePatient(b);
