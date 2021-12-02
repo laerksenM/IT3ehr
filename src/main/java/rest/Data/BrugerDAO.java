@@ -41,7 +41,10 @@ public class BrugerDAO {
                 Bruger bruger = new Bruger();
                 bruger.setBrugernavn(brugernavn);
                 bruger.setPassword(password);
+                System.out.println("Brugernavn: " + resultSet.getString(2) + " Kodeord: " + resultSet.getString(3) );
                 return bruger;
+            }else {
+                System.out.println("ingen bruger med dette brugernavn fundet");
             }
             /*if (resultSet.next()) {
                 //in this case enter when at least one result comes it means user is valid

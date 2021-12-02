@@ -19,59 +19,7 @@ public class MySQLDB {
         }catch(Exception e) {
            System.out.println(e.getMessage());
        }
-        try{
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
-            Connection con = MySQLDB.getConnection();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Aftaler");
-            while(rs.next())
-            {
-                System.out.println(rs.getString(1)+" " + rs.getString(2)+" " + rs.getString(3)+" " + rs.getString(4)+" " + rs.getString(5));
-                System.out.println("----------------------");
-            }
-        }catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
-        try{
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
-            Connection con = MySQLDB.getConnection();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Patients");
-            while(rs.next())
-            {
-                System.out.println(rs.getString(1)+" " + rs.getString(2)+" " + rs.getString(3)+" " + rs.getString(4));
-                System.out.println("----------------------");
-            }
-        }catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
 
-        try{
-            String CPR = "1111111111";
-            String TimeStart = "2021-12-01 00:10";
-            String TimeEnd = "2021-12-01 00:25";
-            String Notat = "notat tilføjes her";
-            String KlinikID = "grp2";
-
-            Connection con = MySQLDB.getConnection();
-            PreparedStatement preparedStatement;
-
-            String SQLAftaler = "INSERT INTO Aftaler (CPR, TimeStart, TimeEnd, Notat, KlinikID) VALUES (?,?,?,?,?)";
-            try {
-                preparedStatement = con.prepareStatement(SQLAftaler);
-                preparedStatement.setString(1, CPR);
-                preparedStatement.setString(2, TimeStart);
-                preparedStatement.setString(3, TimeEnd);
-                preparedStatement.setString(4, Notat);
-                preparedStatement.setString(5, KlinikID);
-                preparedStatement.execute();
-
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
 
 
 
@@ -83,8 +31,10 @@ public class MySQLDB {
             /*Hvordan klasser bliver indlæst i java. Men når man kører noget på en tomcat server fungerer det ikke på samme måde. man skal specifiere at.. */
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://mysql-db.caprover.diplomportal.dk:3306/s205487?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","s205487","zDRQReBWgpShFUe1VxYWZ");
+            System.out.println("forbindelse til db oprette");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+            System.out.println("Fejl i forbindelse til db");
         }
         return con;
     }

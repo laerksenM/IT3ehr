@@ -15,6 +15,7 @@ public class UsersDTO {
 
     // Test til indsætning i database table med et statement ad gangen, kun brugt til test
     public void InsertIntoUsers(String value1, String value2) {
+        Connection connection = MySQLDB.getConnection();
         String SQLUsers = "INSERT INTO Users (User, Password) VALUES (?,?)";
         try {
             preparedStatement = connection.prepareStatement(SQLUsers);
