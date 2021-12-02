@@ -13,7 +13,7 @@ public class BrugerDAO {
     private static BrugerDAO instance = new BrugerDAO();
 
     public BrugerDAO(){
-        //Bruger b = new Bruger();
+        Bruger b = new Bruger();
         /*
         Patient melman = new Patient();
         melman.setName("melman");
@@ -95,5 +95,21 @@ public class BrugerDAO {
             e.printStackTrace();
         }
         return patients;
+    }
+
+    public void savePatient(Bruger b) {
+        try {
+            Connection con = MySQLDB.getConnection();
+            System.out.println(con);
+            PreparedStatement st = con.prepareStatement("insert into Users(User, Password)  values(?, ?)");
+            st.setString(1, b.getBrugernavn());
+            st.setString(2, b.getPassword());
+            st.executeUpdate();
+            st.close();
+            con.close();
+        } catch (Exception var4) {
+            var4.printStackTrace();
+        }
+
     }
 }

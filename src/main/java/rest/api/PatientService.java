@@ -1,6 +1,8 @@
 package rest.api;
 
+
 import rest.Data.Bruger;
+import rest.Data.Patient;
 import rest.business.JWTHandler;
 import rest.Data.BrugerDAO;
 
@@ -37,28 +39,27 @@ public class PatientService {
         return brugers;
        // return BrugerDAO.getInstance().getPatients();
     }*/
-
-
-
     }
-
-/*
-    @GET
-    @Path("{cpr}")
-    public Bruger getPatient(@PathParam("cpr") String cpr) {
-        return null;
-    }
-
-    //POST bruges når der skal tilføjes en ressource, feks en ny pt skal oprettes
+    /*
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Bruger postPatient(Bruger p) {
-        PatientDao.getInstance().getPatients().add(p);
-        return p;
-
+    public Bruger postPatient(Bruger b) {
+        System.out.println("Bruger: " + b);
+        BrugerDAO.getInstance().getPatient().add(b);
+        BrugerDAO.getInstance().savePatient(b);
+        System.out.println("Successfully added Bruger: " + b);
+        return b;
+    }*/
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Bruger postPatient(@HeaderParam("authorization") String authHeader) {
+        System.out.println("Bruger: " + b);
+        BrugerDAO.getInstance().getPatient().add(b);
+        BrugerDAO.getInstance().savePatient(b);
+        System.out.println("Successfully added Bruger: " + b);
+        return b;
     }
 
- */
 }
 
 
